@@ -1,0 +1,73 @@
+{
+  "repo": "raftlet",
+  "language": "Java",
+  "category": "Distributed systems",
+  "goal": "Simulate Raft log replication, terms, and commit indexes.",
+  "review_model": {
+    "terms": [
+      "quorum health",
+      "lease drift",
+      "replica lag",
+      "membership churn"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "quorum health",
+      "signal": 42,
+      "slack": 28,
+      "drag": 27,
+      "confidence": 58,
+      "score": 89,
+      "lane": "hold"
+    },
+    {
+      "name": "stress",
+      "focus": "lease drift",
+      "signal": 68,
+      "slack": 46,
+      "drag": 10,
+      "confidence": 85,
+      "score": 237,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "replica lag",
+      "signal": 54,
+      "slack": 23,
+      "drag": 30,
+      "confidence": 92,
+      "score": 133,
+      "lane": "watch"
+    },
+    {
+      "name": "recovery",
+      "focus": "membership churn",
+      "signal": 80,
+      "slack": 33,
+      "drag": 31,
+      "confidence": 81,
+      "score": 181,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "quorum health",
+      "signal": 86,
+      "slack": 51,
+      "drag": 21,
+      "confidence": 91,
+      "score": 251,
+      "lane": "ship"
+    }
+  ]
+}
