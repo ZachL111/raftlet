@@ -61,3 +61,13 @@ java -cp build/classes io.portfolio.PolicyTest
 java -cp build/classes io.portfolio.DomainReviewTest
 
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-raftlet-detail.ps1
+
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-raftlet-properties.ps1
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-raftlet-golden.ps1
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
